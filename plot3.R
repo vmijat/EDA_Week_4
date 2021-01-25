@@ -20,12 +20,17 @@ total_emissions_Baltimore_per_type <- summarySCC %>%
         group_by(year, type) %>% 
         summarise(total = sum(Emissions, na.rm = TRUE))
 
+png("plot3.png",width=800,height=800,units="px",bg="transparent")
+
 ggplot(data = total_emissions_Baltimore_per_type, aes(x = year, 
                                                       y = total,
                                                       color = type)) +
         geom_point() +
         geom_smooth() +
-        facet_wrap(.~type)
+        facet_wrap(.~type) 
+        
 
+dev.off()
 
 #cliearly, NON-ROAD, NON-POINT and ON-ROAD have decreased
+
