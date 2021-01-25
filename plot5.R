@@ -28,7 +28,7 @@ motor_vehicles_emissions <- inner_join(summarySCC,
 
 
 total_emissions_Baltimore_motor_vehicles <- motor_vehicles_emissions %>% 
-        filter(fips == "24510") %>% 
+        filter(fips == "24510" & type == "ON-ROAD") %>% 
         group_by(year, type) %>% 
         summarise(total = sum(Emissions, na.rm = TRUE))
 

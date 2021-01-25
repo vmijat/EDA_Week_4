@@ -42,3 +42,4 @@ ggplot(data = coal_data_frame, aes(x = year,
 
 
 dev.off()
+
