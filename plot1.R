@@ -16,6 +16,8 @@ total_emissions <- summarySCC %>%
         group_by(year) %>% 
         summarise(total = sum(Emissions, na.rm = TRUE))
 
+png("plot1.png",width=800,height=800,units="px",bg="transparent")
+
 plot(x = total_emissions$year, y = total_emissions$total,
      pch = 25,
      xlab = "Year",
@@ -23,3 +25,6 @@ plot(x = total_emissions$year, y = total_emissions$total,
      ylab = "Total Emissions of PM 2.5",
      main = "Total Emissions of PM2.5 per Year",
 )  
+
+dev.off()
+
